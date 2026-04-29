@@ -2,7 +2,9 @@ const passwordInput = "H3ll0W03ld";
 function checkPassword(password) {
     const promise = new Promise((resolve, reject) => {
         if (password == passwordInput) {
-            resolve("Password is valid");
+            setTimeout(() => {
+                resolve("Password is valid");
+            }, 2000);
         } else {
             reject("Invalid password");
         }
