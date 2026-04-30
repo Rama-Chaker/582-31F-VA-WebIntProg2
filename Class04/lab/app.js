@@ -73,3 +73,11 @@ document.getElementById("btnCourses").addEventListener("click", () => {
         });
 });
 }
+
+function clearButton() {
+    document.getElementById("clear").addEventListener("click", () => {
+        document.getElementById("student-container").innerHTML = "";
+        document.getElementById("courses-container").innerHTML = "";
+        document.getElementById("status").textContent = "Ready.";
+    });
+}
