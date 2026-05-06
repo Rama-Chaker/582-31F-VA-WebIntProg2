@@ -1,5 +1,9 @@
 
 const fetchRequest = fetch("https://jsonplaceholder.typicode.com/users");
+const loadUserBtn = document.getElementById("load-user-btn");
+loadUserBtn.addEventListener("click", () => {
+  status.textContent = "Loading..";
+  output.innerHTML = "";
 fetchRequest
   .then((response) => {
     console.log(response);
@@ -13,3 +17,4 @@ fetchRequest
   .catch((error) => {
     console.log(error);
   });
+});
