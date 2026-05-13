@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Exercise 1</title>
+
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                padding: 20px;
+                max-width: 700px;
+                margin: auto;
+            }
+
+            button {
+                padding: 10px 16px;
+                cursor: pointer;
+            }
+
+            section {
+                margin-top: 20px;
+                padding: 15px;
+                border: 1px solid #ccc;
+            }
+
+            #status {
+                margin: 10px 0;
+            }
+        </style>
+    </head>
+
+    <body>
+        <main>
+            <h1>Posts</h1>
+
+            <p>Click the button below to load a post from JSONPlaceholder.</p>
+
+            <button id="load-posts-btn">Load Post</button>
+
+            <p id="status">Waiting for action...</p>
+
+            <section id="posts-list">
+                <h2>Post Content</h2>
+                <p>No post loaded yet.</p>
+            </section>
+        </main>
+
+        <script src="script.js"></script>
+    </body>
+</html>
