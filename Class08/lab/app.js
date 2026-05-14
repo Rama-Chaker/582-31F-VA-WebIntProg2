@@ -105,7 +105,19 @@ function renderUserCard(user) {
 
     loadPostsBtn.addEventListener("click", () => {
 
+         if (postsContainer.innerHTML !== "") {
+
+        postsContainer.innerHTML = "";
+
+        loadPostsBtn.textContent = "Load Posts";
+
+    } else {
+
+        // load posts again
         loadPostsForUser(user, postsContainer);
+
+        loadPostsBtn.textContent = "Hide Posts";
+    }
     });
 }
 
