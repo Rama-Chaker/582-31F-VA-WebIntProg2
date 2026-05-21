@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Modular User Viewer</title>
+  </head>
+  <body>
+    <h1>Modular User Viewer</h1>
+    <p id="status">Click the button to load users.</p>
+    <button id="load-users-btn">Load Users</button>
+    <div id="users-container"></div>
+    <button id="clear-btn">Clear</button>
+    <p> Reflection Answers:</p>
+    <ol>
+      <li>The purpose of type="module" in the script tag is to enable the use of JavaScript modules, allowing us to import and export functionality between different files.</li>
+      <li>It is useful to separate fetchUsers() in a api.js file to keep the code and logic organized and maintainable.</li>
+      <li>It is useful to separate the UI rendering logic into a ui.js file to keep the code organized and maintainable.</li>
+      <li>It will be hard to debug if we keep everything in one place.</li>
+      <li>The difference between exporting and importing : exporting allows us to make certain variables or functions available to other modules, while importing allows us to use those exported variables or functions in our current module.</li>
+    </ol>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
