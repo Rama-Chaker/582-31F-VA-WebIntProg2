@@ -1,21 +1,27 @@
 export function getTournaments() {
 
-    const response = fetch("tournaments.json");
+    return fetch("tournaments.json")
+        .then(response => {
 
-    if (response.status !== 200) {
-        throw new Error("Failed to load tournaments");
-    }
+            console.log("STATUS:", response.status);
 
-    return response.json();
+            if (!response.ok) {
+                throw new Error("Failed to load tournaments");
+            }
+
+            return response.json();
+        });
 }
 
 export function getRegistrations() {
 
-    const response =  fetch("registrations.json");
+    return fetch("registrations.json")
+        .then(response => {
 
-    if (response.status !== 200) {
-        throw new Error("Failed to load registrations");
-    }
+            if (!response.ok) {
+                throw new Error("Failed to load registrations");
+            }
 
-    return response.json();
+            return response.json();
+        });
 }

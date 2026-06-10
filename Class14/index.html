@@ -54,6 +54,39 @@
 
 </div>
 
+<h1>Post Loader</h1>
+
+<input
+    type="number"
+    id="post-id-input"
+    placeholder="Enter post ID"
+/>
+
+<button id="load-post-btn">
+    Load Post
+</button>
+
+<button id="clear-btn">
+    Clear
+</button>
+
+<p id="status">
+    Enter a post ID and click Load Post.
+</p>
+
+<div id="output">
+    No post loaded yet.
+</div>
+
+
+<div> 
+    <p>Reflection Questions' answers</p>
+    <p>1. try/catch allows us to handle errors without crashing the program.</p>
+    <p>2. It creates and throws an error that can be caught by a catch block.</p>
+    <p>3. We check for response.ok to make sure the http request succeeded before using the data.</p>
+    <p>4. try/catch handles synchronous errors. But, .catch() handles Promise and fetch errors.</p>
+    <p>5. finally() runs whether the request succeeds or fails.</p>
+</div>
 <script type="module" src="app.js"></script>
 
 </body>
