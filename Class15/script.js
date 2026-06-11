@@ -72,9 +72,6 @@ class GameCard extends HTMLElement {
     `;
   }
   render() {
-    const title = this.getTitle();
-    const year = this.getYear();
-    const rating = this.getRating();
        this.innerHTML = `
         <div>
             ${this.renderHeading()}
