@@ -79,10 +79,10 @@ class MovieBox extends HTMLElement {
      shadow.innerHTML = `
         ${this.renderStyle()}
         <div class="card">
-            <img src="${this.getPosterUrl()}" alt="${this.getTitle()}" class="movie-poster" />
             <h2 class="movie-title">${this.getTitle()}</h2>
             <p class="movie-info">Year: ${this.getYear()}</p>
             <p class="movie-info">Director: ${this.getDirector()}</p>
+            <img src="${this.getPosterUrl()}" alt="${this.getTitle()}" class="movie-poster" />
         </div>
      `;
     }
