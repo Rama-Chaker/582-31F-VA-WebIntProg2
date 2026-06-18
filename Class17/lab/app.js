@@ -27,22 +27,28 @@ function loadTeams() {
 
     fetchTeams()
         .then((data) => {
-            const teams = data.map((item) => Team.fromObject(item));
-
-            renderTeams(teams, teamsContainer);
-
-            showStatus("Teams loaded successfully.");
+            try {
+                const teams = data.map((team) => Team.fromObject(team));
+                renderTeams(teams, teamsContainer);
+                showStatus("Teams loaded successfully.");
+            } catch (error) {
+                showStatus("Invalid team data received.");
+            }
         })
         .catch((error) => {
             showStatus(error.message);
+            teamsContainer.innerHTML = "<p>Unable to load teams.</p>";
         });
 }
 
 function clearPage() {
-    document.getElementById("teams-container").innerHTML = "";
 
-    document.getElementById("details-container").innerHTML =
+    teamsContainer.innerHTML = "";
+
+    detailsContainer.innerHTML =
         "<p>No team selected yet.</p>";
 
-    showStatus("Dashboard cleared.");
+    showStatus(
+        "Dashboard cleared."
+    );
 }

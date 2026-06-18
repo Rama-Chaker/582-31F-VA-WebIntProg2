@@ -20,7 +20,20 @@ export class Team {
         this._points = value;
     }
 
+    get points(){
+        return this._points;
+    }
+
     static fromObject(data) {
+        if (
+        !data.id ||
+        !data.name ||
+        !data.group
+    ) {
+        throw new Error(
+            "Invalid team data."
+        );
+    }
         return new Team(
             data.id,
             data.name,
