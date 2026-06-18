@@ -17,6 +17,10 @@ class TeamCard extends HTMLElement {
     getGoalDifference() {
         return this.getAttribute("goal-difference");
     }
+    isLeader(){
+
+        return Number(this.getPoints()) >= 5;
+    }
 
     renderStyle() {
         return `
@@ -53,16 +57,19 @@ class TeamCard extends HTMLElement {
                 .details-button:hover {
                     background-color: #0056b3;  
                 }
-                
+                .leader{
+                 border: 3px solid green;
+                }
             </style>
           
         `;
     }
     render() {
         const shadow = this.attachShadow({ mode: "open" });
+        const isLeader = this.isLeader() ? "leader" : "";
         shadow.innerHTML = `
         ${this.renderStyle()}
-        <div class="team-card">
+        <div class="team-card ${isLeader}">
             <h2 class="team-title">${this.getName()}</h2>
             <p class="team-info">Group: ${this.getGroup()}</p>
             <p class="team-info">Points: ${this.getPoints()}</p>
@@ -96,3 +103,4 @@ button.addEventListener("click", () => {
     }
 }
 customElements.define("team-card", TeamCard);
+
