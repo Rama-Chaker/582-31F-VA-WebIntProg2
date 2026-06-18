@@ -1,13 +1,5 @@
 export class Team {
-
-    constructor(
-        id,
-        name,
-        group,
-        points,
-        played,
-        goalDifference
-    ) {
+    constructor(id, name, group, points, played, goalDifference) {
         this.id = id;
         this.name = name;
         this.group = group;
@@ -21,10 +13,7 @@ export class Team {
     }
 
     set points(value) {
-
-        if (
-            value < 0
-        ) {
+        if (value < 0) {
             throw new Error("Invalid points value");
         }
 
@@ -32,14 +21,13 @@ export class Team {
     }
 
     static fromObject(data) {
-
         return new Team(
             data.id,
             data.name,
             data.group,
             data.points,
             data.played,
-            data.goalDifference
+            data.goalDifference,
         );
     }
 }

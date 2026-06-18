@@ -1,39 +1,18 @@
-export function renderTeams(
-    teams,
-    container
-) {
-
-    const container =
-        document.getElementById("teams-container");
-
+export function renderTeams(teams, container) {
     container.innerHTML = "";
 
-    teams.forEach(team => {
+    teams.forEach((team) => {
+        const card = document.createElement("team-card");
+        card.setAttribute("name", team.name);
+        card.setAttribute("group", team.group);
+        card.setAttribute("points", team.points);
+        card.setAttribute("played", team.played);
+        card.setAttribute("goal-difference", team.goalDifference);
 
-        const card = document.createElement("div");
-
-        card.className = "col-md-4 mb-3";
-
-        card.innerHTML = `
-        <div class="card h-100">
-            <div class="card-body">
-
-                <h5>${team.name}</h5>
-            
-                <p>Group:
-                    ${team.group}</p>
-
-                <p>Points:
-                ${team.points}</p>
-
-                <p>Played:
-                ${team.played}</p>
-
-                <p>Goal Difference:
-                ${team.goalDifference}</p>
-            </div>
-        </div>
-        `;
         container.appendChild(card);
     });
+}
+
+export function showStatus(message) {
+    document.getElementById("status").textContent = message;
 }
