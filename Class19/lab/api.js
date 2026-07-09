@@ -1,10 +1,9 @@
-export async function fetchArtists() {
-  const response = await fetch('artists.json');
-  
-  if (!response.ok) {
-    throw new Error(`HTTP network error encountered! Status code: ${response.status}`);
-  }
-  
-  const data = await response.json();
-  return data;
+export function fetchArtists() {
+  return fetch('artists.json')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status code: ${response.status}`);
+      }
+      return response.json(); 
+    });
 }
