@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Festival Lineup Guide</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                max-width: 900px;
+                margin: 0 auto;
+                padding: 20px;
+                background-color: #f4f4f9;
+                color: #333;
+            }
+            header {
+                border-bottom: 2px solid #ccc;
+                padding-bottom: 10px;
+                margin-bottom: 20px;
+            }
+            .controls {
+                margin-bottom: 20px;
+            }
+            button {
+                padding: 10px 15px;
+                margin-right: 10px;
+                font-size: 14px;
+                cursor: pointer;
+                border: none;
+                border-radius: 4px;
+                background-color: #007bff;
+                color: white;
+            }
+            button:hover {
+                background-color: #0056b3;
+            }
+            #clear-btn {
+                background-color: #6c757d;
+            }
+            #clear-btn:hover {
+                background-color: #5a6268;
+            }
+            #status {
+                font-weight: bold;
+                margin-bottom: 20px;
+                color: #555;
+            }
+            .main-content {
+                display: grid;
+                grid-template-columns: 2fr 1fr;
+                gap: 20px;
+            }
+            #lineup-container {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 15px;
+            }
+            #details-panel {
+                background: white;
+                padding: 20px;
+                border-radius: 8px;
+                border: 1px solid #ddd;
+                height: fit-content;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Festival Lineup Guide</h1>
+            <p>Explore your ultimate weekend music festival schedule.</p>
+        </header>
+
+        <div class="controls">
+            <button id="load-btn">Load Lineup</button>
+            <button id="clear-btn">Clear</button>
+        </div>
+
+        <div id="status">No lineup loaded.</div>
+
+        <div class="main-content">
+            <div id="lineup-container"></div>
+
+            <div id="details-panel">
+                <h3>Artist Details</h3>
+                <p id="details-placeholder">
+                    Click "View Details" on an artist to display information
+                    here.
+                </p>
+                <div id="details-content" style="display: none">
+                    <h4 id="detail-name"></h4>
+                    <p>Genre:<span id="detail-genre"></span></p>
+                    <p>Stage:<span id="detail-stage"></span></p>
+                    <p>Time:<span id="detail-time"></span></p>
+                    <p>
+                        Country:
+                        <span id="detail-country"></span>
+                    </p>
+                    <p>Summary: <span id="detail-summary"></span></p>
+                </div>
+            </div>
+        </div>
+
+        <template id="artist-template">
+            <style>
+                .card {
+                    background: white;
+                    border: 1px solid #ddd;
+                    border-radius: 6px;
+                    padding: 15px;
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                }
+                .artist-name {
+                    margin: 0 0 10px 0;
+                    color: #222;
+                }
+                .artist-info {
+                    margin: 5px 0;
+                    font-size: 14px;
+                    color: #666;
+                }
+                .view-btn {
+                    margin-top: 10px;
+                    background: #28a745;
+                    color: white;
+                    border: none;
+                    padding: 6px 12px;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    width: 100%;
+                    font-size: 13px;
+                }
+                .view-btn:hover {
+                    background: #218838;
+                }
+            </style>
+            <div class="card">
+                <h3 class="artist-name" id="card-name">Artist Name</h3>
+                <p class="artist-info">
+                    Genre: <span id="card-genre">Genre</span>
+                </p>
+                <p class="artist-info">
+                    Stage: <span id="card-stage">Stage</span>
+                </p>
+                <button class="view-btn">View Details</button>
+            </div>
+        </template>
+
+        <script type="module" src="app.js"></script>
+    </body>
+</html>
