@@ -1,4 +1,4 @@
-import Performance from "./Performance.js";
+import {Performance} from "./Performance.js";
 
 export class FeaturedPerformance {
     constructor(
