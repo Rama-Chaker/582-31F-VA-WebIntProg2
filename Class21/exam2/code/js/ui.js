@@ -11,7 +11,7 @@ const ticketCount = document.getElementById("ticket-count");
 const averagePrice = document.getElementById("average-price");
 
 export function renderLoading() {
-  statusOutput.textContent = "Festival lineup loaded successfully.";
+  statusOutput.textContent = "Loading festival data...";
 
   performanceContainer.innerHTML = "";
 
@@ -22,17 +22,20 @@ export function renderLoading() {
 
 export function renderError(error) {
   statusOutput.textContent = `Error: ${error}`;
-
   performanceCount.textContent = "0";
+  ticketCount.textContent = "0";
+  averagePrice.textContent = "$0.00";
 }
 
 export function renderPerformances(performance) {
   performanceContainer.innerHTML = "";
-
-  if (!performance) {
+if (!performance || performance.length === 0) {
     statusOutput.textContent =
       "No performances match " + "the current filters.";
 
+    performanceCount.textContent = "0";
+    ticketCount.textContent = "0";
+    averagePrice.textContent = "$0.00";
     return;
   }
 
