@@ -112,7 +112,7 @@ function applyFilters() {
 
     const matchesFeatured = !featuredOnly || performance.featured;
 
-    return matchesSearch && matchesStage && matchesTickets && matchesFeatured;
+     return matchesSearch && matchesStage && matchesTickets && matchesFeatured;
   });
 
   visiblePerformances = [...visiblePerformances];
@@ -150,9 +150,9 @@ function resetFilters() {
 
 loadButton.addEventListener("click", loadLineup);
 
-searchInput.addEventListener("change", applyFilters);
+searchInput.addEventListener("input", applyFilters);
 
-stageFilter.addEventListener("input", applyFilters);
+stageFilter.addEventListener("change", applyFilters);
 
 ticketsFilter.addEventListener("change", applyFilters);
 
