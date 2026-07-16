@@ -29,7 +29,7 @@ const statusText = document.getElementById("status");
 let performances;
 
 async function loadLineup() {
-  renderLoading;
+  renderLoading();
 
   loadButton.disabled = true;
 
@@ -41,7 +41,7 @@ async function loadLineup() {
     );
 
     performances = data.performances.map((item) => {
-      const artist = artists.filter((artist) => artist.id === item.artistId);
+      const artist = artists.find((artist) => artist.id === item.artistId) || null;
 
       if (item.featured) {
         return new FeaturedPerformance(
@@ -81,7 +81,7 @@ async function loadLineup() {
     renderError(error.message);
   }
 
-  loadButton.disabled = true;
+  loadButton.disabled = false;
 }
 
 function applyFilters() {
@@ -96,10 +96,15 @@ function applyFilters() {
   const sort = sortSelect.value;
 
   let visiblePerformances = performances.filter((performance) => {
+     let artistName = "";
+    if (performance.artist) {
+      artistName = performance.artist.name.toLowerCase();
+    }
+    
     const matchesSearch =
       searchTerm === "" ||
       performance.title.toLowerCase().includes(searchTerm) ||
-      performance.artist.name.toLowerCase().includes(searchTerm);
+      artistName.includes(searchTerm);
 
     const matchesStage = stage === "" || performance.stage === stage;
 
@@ -136,8 +141,8 @@ function applyFilters() {
 function resetFilters() {
   searchInput.value = "";
   stageFilter.value = "";
-  ticketsFilter.value = false;
-  featuredFilter.value = false;
+  ticketsFilter.checked = false;
+  featuredFilter.checked = false;
   sortSelect.value = "time-asc";
 
   applyFilters();
