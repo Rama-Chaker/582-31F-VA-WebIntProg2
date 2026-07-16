@@ -56,7 +56,7 @@ async function loadLineup() {
         );
       }
 
-      return new Performances(
+      return new Performance(
         item.id,
         item.title,
         artist,
@@ -67,7 +67,7 @@ async function loadLineup() {
       );
     });
 
-    renderPerformance(performances);
+    renderPerformances(performances);
 
     searchInput.disabled = false;
     stageFilter.disabled = false;
@@ -78,7 +78,7 @@ async function loadLineup() {
   } catch (error) {
     console.log("Lineup loaded:", error);
 
-    renderErrors(error.message);
+    renderError(error.message);
   }
 
   loadButton.disabled = true;
