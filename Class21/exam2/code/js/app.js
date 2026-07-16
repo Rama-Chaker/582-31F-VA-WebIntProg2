@@ -1,14 +1,14 @@
 import {getFestivalData} from "./api.js";
 
-import { Artist } from "./Artist.js";
+import Artist from "./Artist.js";
 
 import { Performance } from "./Performance.js";
 
 import { FeaturedPerformance } from "./FeaturedPerformance.js";
 
-import { PerformanceCard } from "./PerformanceCards.js";
+import { PerformanceCard } from "./PerformanceCard.js";
 
-import { renderLoading, renderErrors, renderPerformance } from "./ui.js";
+import { renderLoading, renderError, renderPerformances } from "./ui.js";
 
 const loadButton = document.getElementById("load-lineup");
 
@@ -34,7 +34,7 @@ async function loadLineup() {
   loadButton.disabled = true;
 
   try {
-    const data = getFestivalData();
+    const data = await getFestivalData();
 
     const artists = data.artists.map(
       (item) => new Artist(item.id, item.name, item.country, item.genre),
