@@ -25,14 +25,16 @@
       </div>
 
       <!-- Case 2: Specified Coordinates (Montreal) -->
-      <div class="col-md-5">
-        <div class="card p-3 shadow-sm">
-          <h5 class="card-title">Montreal Weather</h5>
-          <p class="text-muted small">Uses explicit latitude & longitude attributes</p>
+    <div class="col-md-5">
+        <div class="card p-3 border-0 shadow-sm">
+          <h5>Preset Coordinates (Montreal)</h5>
+          <p class="text-muted small">Passes latitude and longitude attributes</p>
+          <!-- Happy Path -->
           <current-weather latitude="45.5088" longitude="-73.5878"></current-weather>
+           <!-- Failed Test Case -->
+           <!-- <current-weather latitude="999" longitude="999"></current-weather> -->
         </div>
       </div>
-
     </div>
   </div>
 
