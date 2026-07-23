@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Current Weather Custom Element</title>
+  <link 
+    rel="stylesheet" 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+  >
+</head>
+<body class="bg-light p-4">
+  <div class="container">
+    <h1 class="mb-4 text-center">Weather Widget Assessment</h1>
+
+    <div class="row g-4 justify-content-center">
+
+      <!-- Case 1: Automatic Geolocation -->
+      <div class="col-md-5">
+        <div class="card p-3 shadow-sm">
+          <h5 class="card-title">User Location Weather</h5>
+          <p class="text-muted small">Uses browser getCurrentPosition by default</p>
+          <current-weather></current-weather>
+        </div>
+      </div>
+
+      <!-- Case 2: Specified Coordinates (Montreal) -->
+      <div class="col-md-5">
+        <div class="card p-3 shadow-sm">
+          <h5 class="card-title">Montreal Weather</h5>
+          <p class="text-muted small">Uses explicit latitude & longitude attributes</p>
+          <current-weather latitude="45.5088" longitude="-73.5878"></current-weather>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script type="module" src="current-weather.js"></script>
+</body>
+</html>
